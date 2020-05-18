@@ -1,0 +1,31 @@
+<div id="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <li class="active" id="account"><a routerLink="/prestacion"><strong>Prestación</strong></a></li>
+        <li class="active" id="personal"><a routerLink="/tarifar"><strong>Tarifación</strong></a></li>
+        <li class="active" id="payment"><a routerLink="/prestador"><strong>Prestador</strong></a></li>
+        <li class="noactive" id="confirm"><a routerLink="/propuesta"><strong>Propuesta Final</strong></a></li>
+    </ul>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div id="container" class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-4 col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <label for="codigoPrestacion">Prestador</label>
+                        <select class="form-control" [(ngModel)]="prestador">
+                            <option *ngFor="let p of prestadores" [ngValue]="p">{{p.codigo}} - {{p.razonSocial}} ({{p.tipo}})</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-4 col-sm-12 col-md-4">
+                    <button class="btn btn-primary" (click)="verPropuesta()">Ver propuesta final</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

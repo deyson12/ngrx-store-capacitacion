@@ -1,0 +1,56 @@
+<div id="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <li class="active" id="account"><a routerLink="/prestacion"><strong>Prestación</strong></a></li>
+        <li class="active" id="personal"><a routerLink="/tarifar"><strong>Tarifación</strong></a></li>
+        <li class="noactive" id="payment"><a routerLink="/prestador"><strong>Prestador</strong></a></li>
+        <li class="noactive" id="confirm"><a routerLink="/propuesta"><strong>Propuesta Final</strong></a></li>
+    </ul>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div id="container" class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-4 col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <label for="codigoPrestacion">Código</label>
+                        <input type="codigoPrestacion" class="form-control" id="codigoPrestacion" [(ngModel)]="prestacion.codigo" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-4 col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <label for="dsPrestacion">Descripcion</label>
+                        <input type="dsPrestacion" class="form-control" id="dsPrestacion" [(ngModel)]="prestacion.descripcion" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-4 col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">$</div>
+                            </div>
+                            <input type="number" class="form-control" id="precio" [(ngModel)]="tarifa.valor">
+                            <div class="input-group-append">
+                                <select class="form-control" [(ngModel)]="tarifa.moneda">
+                                    <option value="COP">COP</option>
+                                    <option value="USD">USD</option>
+                                </select>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-4 col-sm-12 col-md-4">
+                    <button class="btn btn-primary" (click)="seleccionarPrestador()">Seleccionar prestador</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
