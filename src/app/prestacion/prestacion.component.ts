@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Prestacion } from './model/prestacion';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.reducers';
+import * as fromPrestacionAction from './prestacion.actions'
 
 @Component({
   selector: 'app-prestacion',
@@ -14,7 +17,13 @@ export class PrestacionComponent implements OnInit {
     descripcion: ''
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private readonly store: Store<AppState>) { 
+
+    this.store.subscribe( status => {
+      this.prestacion = {...status.prestacion};
+    });
+
+  }
 
   ngOnInit(): void {
   }
@@ -22,6 +31,8 @@ export class PrestacionComponent implements OnInit {
   tarifar() {
 
     console.log('Prestación: ', this.prestacion);
+    const action = new fromPrestacionAction.GuardarAction(this.prestacion);
+    this.store.dispatch(action);
 
     this.router.navigateByUrl('/tarifar');
   }

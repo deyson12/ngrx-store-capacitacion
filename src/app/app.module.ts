@@ -10,6 +10,10 @@ import { PrestadorComponent } from './prestador/prestador.component';
 import { PropuestaComponent } from './propuesta/propuesta.component';
 
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { structure, devConf } from './app.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot(structure),
+    StoreDevtoolsModule.instrument(devConf)
   ],
   providers: [],
   bootstrap: [AppComponent]

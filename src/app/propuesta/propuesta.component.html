@@ -31,8 +31,8 @@
                         <tbody>
                           <tr>
                             <th scope="row">1</th>
-                            <td>XXXXXX - XXXXXXXXXXXXXX</td>
-                            <td>$ 0.000 XXX</td>
+                            <td>{{prestacion.codigo}} - {{prestacion.descripcion}}</td>
+                            <td>$ {{(tarifa | async)?.valor}} {{(tarifa | async)?.moneda}}</td>
                           </tr>
                         </tbody>
                       </table>
